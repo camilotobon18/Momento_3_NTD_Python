@@ -1,9 +1,10 @@
 class Cuenta():
-    def __init__(self, cedula, nombre, fecha_apertura, cantidad=0.0):
+    def __init__(self, cedula, nombre, fecha_apertura, cantidad):
         self.__cedula = cedula
         self.__nombre = nombre
         self.__fecha_apertura = fecha_apertura
         self.__cantidad = cantidad
+    
     
     #getter
     def get_cedula(self):
@@ -35,7 +36,8 @@ class Cuenta():
     
     #Metodo. ingresar(double cantidad): se ingresa una cantidad a la cuenta, si la cantidad introducida es negativa, no se hará nada
     def ingresar(self, valor):
-        while(True):
+        validacion=True
+        while(validacion):
             try:
                 valor = float(valor)
                 if valor > 0:
@@ -44,13 +46,15 @@ class Cuenta():
                 elif valor < 0:
                     print("El valor ingresado es negativo, no se puede realizar la consignación")
                     break  
+                validacion=False
             except ValueError:
                 print("Debes introducir un número ")
                 valor = input("Ingresa el valor a consignar de nuevo: ")
 
     #Metodo. retirar(double cantidad): se retira una cantidad a la cuenta, si restando la cantidad actual a la que nos pasan es negativa, la cantidad de la cuenta pasa a ser 0 y debe decir cuanto fue lo que pudo retirar
     def retirar(self, valor):
-        while(True):
+        validacion = True
+        while(validacion):
             try: 
                 valor = float(valor)
                 if self.get_cantidad() < valor:
@@ -60,7 +64,7 @@ class Cuenta():
                 else:
                     resultado = float(self.get_cantidad()) - valor
                     return self.set_cantidad(resultado)
-
+                validacion = False
             except ValueError:
                 print("Debes introducir un número ")
                 valor = input("Ingresa el valor a retirar de nuevo: ")

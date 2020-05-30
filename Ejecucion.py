@@ -27,3 +27,4 @@ def ejercicio_imc():
         print("Es menor de edad")
 
 ejercicio_imc()
+

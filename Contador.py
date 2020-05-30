@@ -4,7 +4,7 @@ class Contador():
         self.__valor = 0
         self.__frecuencia = 1"""
     #Constructor con parametros
-    def __init__(self, valor, frecuencia):
+    def __init__(self, valor=0, frecuencia=1):
         self.__valor = valor
         self.__frecuencia = frecuencia
     #Constructor copia
@@ -23,17 +23,15 @@ class Contador():
     def set_frecuencia(self, frecuencia):
         self.__frecuencia = frecuencia
 
-    
-    """
-    @property
     def incrementar(self):
-        return self.
+        resultado =  self.get_valor() + self.get_frecuencia()
+        print(resultado)
+        return self.set_valor(resultado)
 
-    @incrementar.setter
-    def set_incrementar
-        self.valor = self.valor + frecuencia
-    """
+    def decrementar(self):
+        resultado = self.get_valor() - self.get_frecuencia()
+        print(resultado)
+        return self.set_valor(resultado)
+        
 
-contar = Contador()
 
-contar.get_frecuencia()

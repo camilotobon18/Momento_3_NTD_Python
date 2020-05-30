@@ -1,11 +1,12 @@
+import random 
 class Persona():
     #Constructor por defecto
-    #def __init__(self, nombre=):
+
 
     #Constructor con el nombre, edad, sexo, resto por defecto
 
     #Constructor con parametros
-    def __init__(self, DNI, nombre="", edad=0, sexo="", peso=0.0, altura=0.0):
+    def __init__(self, DNI, nombre="", edad=0, sexo="", peso=0.00, altura=0.00):
         self.__nombre = nombre
         self.__edad = edad
         self.__DNI = DNI
@@ -76,5 +77,25 @@ class Persona():
     def __str__(self):
         return "Nombre: {}\nEdad: {}\nIdentificación: {}\nSexo: {}\nPeso: {}\nAltura: {}".format(self.__nombre, self.__edad, self.__DNI, self.__sexo, self.__peso, self.__altura)
 
+    def generar_DNI(self, ):
+        return random.randrange(1E7,1E8-1)
+
+    @staticmethod
+    def validacion_dato(dato, tipo):
+        validacion = True
+        while(validacion):
+            try:
+                if tipo==float:
+                    dato = float(dato)
+                    validacion = False
+                elif tipo==int:
+                    dato = int(dato)
+                    validacion = False
+                return dato
+            except:
+                print("El tipo de dato es invalido")
+                dato = input("Intente nuevamente: ")
 
 
+per = Persona(1035)
+print(per.generar_DNI())
